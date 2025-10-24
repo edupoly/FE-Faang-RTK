@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import {
   useAddNewTodoMutation,
   useGetTodosByUserNameQuery,
@@ -22,7 +23,7 @@ function MyTodos() {
       />
       <button
         onClick={() => {
-          addTodoFn({ newtodo, timestamp: Date.now(), username });
+          addTodoFn({ newtodo, timestamp: Date.now(), username, id: uuidv4() });
         }}
       >
         Add Todo
@@ -31,7 +32,12 @@ function MyTodos() {
       {!isLoading && (
         <ul>
           {data.map((todo) => {
-            return <li>{todo.newtodo}</li>;
+            return (
+              <li>
+                <b>{todo.newtodo}</b>
+                <button onClick={() => {}}>Del</button>
+              </li>
+            );
           })}
         </ul>
       )}
