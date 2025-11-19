@@ -39,4 +39,5 @@ export const {
   useAllTodosQuery,
   useGetTodosByUserNameQuery,
   useDeleteTodoMutation,
+  useLazyGetTodosByUserNameQuery,
 } = todosApi;
